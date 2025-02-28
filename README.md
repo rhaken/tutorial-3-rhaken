@@ -12,11 +12,7 @@ Penyesuaian Animasi Sesuai Keadaan Karakter
 
 ## Animasi
 Saya memastikan bahwa setiap aksi memiliki animasi yang sesuai. Contohnya, saat karakter dalam keadaan diam di tanah, animasi "Idle" dimainkan. Saat berjalan, "Run" dimainkan, dan saat melompat, "Jump" dimainkan. Hal ini dilakukan dengan menambahkan pengecekan apakah karakter sedang di tanah atau sedang melompat (is_jumping).
-Hambatan dan Solusi yang Ditemukan
 
-## Masalah saat mengerjakan
-Masalah: Awalnya, animasi berjalan masih dimainkan meskipun karakter sedang dalam mode crouch atau dash.
-Solusi: Saya menambahkan kondisi pengecekan di if is_dashing dan if Input.is_action_pressed("ui_down"), sehingga jika salah satu aksi ini aktif, animasi berjalan tidak dimainkan.
 
 ## Referensi
 Sprite animasi : https://www.spriters-resource.com/pc_computer/mikunpop/sheet/46493/
