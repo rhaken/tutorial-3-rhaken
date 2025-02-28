@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cvlfy0dx5bbco"]
+[gd_scene load_steps=64 format=3 uid="uid://cvlfy0dx5bbco"]
 
 [ext_resource type="Script" path="res://miku.gd" id="1_p0y8t"]
 [ext_resource type="Texture2D" uid="uid://cktqpw3e28v7i" path="res://assets/PC_Computer_-_Miku_n_Pop_-_Miku_Hatsune-removebg.png" id="2_jb4cw"]
@@ -170,6 +170,42 @@ region = Rect2(1062, 0, 59, 69)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwvfl"]
 atlas = ExtResource("2_jb4cw")
 region = Rect2(1121, 0, 59, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqx42"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(0, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkdrd"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(78, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atm00"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(156, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn8qr"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(234, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eugr8"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(312, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3is55"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(390, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1oer"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(468, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3naae"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(546, 158, 78, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeepk"]
+atlas = ExtResource("2_jb4cw")
+region = Rect2(624, 158, 78, 79)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5t528"]
 atlas = ExtResource("2_jb4cw")
@@ -348,6 +384,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jqx42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkdrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atm00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn8qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eugr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3is55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1oer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3naae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeepk")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5t528")
 }, {
 "duration": 1.0,
@@ -377,16 +445,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4x2v"]
-size = Vector2(44, 57)
+size = Vector2(61, 65)
 
 [node name="Miku" type="CharacterBody2D"]
 script = ExtResource("1_p0y8t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_llixa")
-animation = &"Dash"
-frame_progress = 0.566941
+animation = &"Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, -6.5)
+position = Vector2(5.5, -2.5)
 shape = SubResource("RectangleShape2D_y4x2v")

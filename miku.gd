@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var walk_speed = 200
-@export var gravity = 200.0
+@export var gravity = 500.0
 @export var jump_speed = -300
 @export var max_jump = 2
 @export var jump_count = 0
@@ -16,11 +16,13 @@ var last_input = ""
 var last_input_time = 0.0
 var double_tap_time = 0.3
 var is_dashing = false
+var is_jumping = false
+
 
 func _physics_process(delta):
 	velocity.y += delta * gravity
 	
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") and is_on_floor():
 		$AnimatedSprite2D.play("Crouching")
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -crouch_speed
@@ -44,6 +46,7 @@ func _physics_process(delta):
 			move_and_slide()
 			return
 	
+	
 	elif Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
 		var current_input = "ui_left" if Input.is_action_just_pressed("ui_left") else "ui_right"
 		var direction = -1 if current_input == "ui_left" else 1
@@ -60,24 +63,31 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		jump_count = 0
+		is_jumping = false
 	if  Input.is_action_just_pressed('ui_up') and jump_count <= max_jump:
+		is_jumping = true
 		if jump_count == 0 and is_on_floor():
+			$AnimatedSprite2D.play("Jump")
 			velocity.y = jump_speed
 			jump_count += 1
 		elif jump_count == 1:
+			$AnimatedSprite2D.play("Jump")
 			velocity.y = jump_speed
 			jump_count += 1
 		print(jump_count)
-	if Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -walk_speed
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("Run")
+		if not is_jumping:
+			$AnimatedSprite2D.play("Run")
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x =  walk_speed
 		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("Run")
+		if not is_jumping:
+			$AnimatedSprite2D.play("Run")
 	else:
-		$AnimatedSprite2D.play("Idle")
+		if(is_on_floor()):
+			$AnimatedSprite2D.play("Idle")
 		velocity.x = 0
 	# "move_and_slide" already takes delta time into account.
 	move_and_slide()
