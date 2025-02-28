@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=3 format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Ground.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cvlfy0dx5bbco" path="res://scenes/miku.tscn" id="1_pnwxb"]
 
 [node name="Root" type="Node2D"]
+
+[node name="Miku" parent="." instance=ExtResource("1_pnwxb")]
+position = Vector2(425, 39)
 
 [node name="Ground" parent="." instance=ExtResource("1")]
 position = Vector2(507.708, 363.86)
