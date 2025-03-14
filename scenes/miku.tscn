@@ -1,7 +1,8 @@
-[gd_scene load_steps=64 format=3 uid="uid://cvlfy0dx5bbco"]
+[gd_scene load_steps=66 format=3 uid="uid://cvlfy0dx5bbco"]
 
-[ext_resource type="Script" path="res://miku.gd" id="1_p0y8t"]
+[ext_resource type="Script" path="res://scenes/miku.gd" id="1_p0y8t"]
 [ext_resource type="Texture2D" uid="uid://cktqpw3e28v7i" path="res://assets/PC_Computer_-_Miku_n_Pop_-_Miku_Hatsune-removebg.png" id="2_jb4cw"]
+[ext_resource type="AudioStream" uid="uid://pnsprc6o7u8o" path="res://assets/sound/punch.wav" id="3_1eaje"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3aos"]
 atlas = ExtResource("2_jb4cw")
@@ -447,6 +448,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4x2v"]
 size = Vector2(61, 65)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4qg"]
+size = Vector2(74, 47)
+
 [node name="Miku" type="CharacterBody2D"]
 script = ExtResource("1_p0y8t")
 
@@ -457,3 +461,14 @@ animation = &"Jump"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.5, -2.5)
 shape = SubResource("RectangleShape2D_y4x2v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1eaje")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, -2.5)
+shape = SubResource("RectangleShape2D_qc4qg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_collision"]
