@@ -10,6 +10,11 @@ Dash diimplementasikan dengan mendeteksi "double tap" (dua kali tekan cepat) pad
 ## Animasi
 Saya memastikan bahwa setiap aksi memiliki animasi yang sesuai. Contohnya, saat karakter dalam keadaan diam di tanah, animasi "Idle" dimainkan. Saat berjalan, "Run" dimainkan, dan saat melompat, "Jump" dimainkan. Hal ini dilakukan dengan menambahkan pengecekan apakah karakter sedang di tanah atau sedang melompat (is_jumping).
 
+## Bgm
+Saya menambahkan bgm yang di download dan meng convert nya menjadi wav menggunakan ffmpeg
+
+## sound effect
+Saya menambahkan sound effect ketika character kita menabrak seasuatu
 
 ## Referensi
 Sprite animasi : https://www.spriters-resource.com/pc_computer/mikunpop/sheet/46493/
